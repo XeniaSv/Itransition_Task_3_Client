@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, useEffect } from 'react';
+import UserPage from "./components/UserPage";
+import {
+    Routes,
+    Route,
+    useNavigate
+} from "react-router-dom"
+import LoginForm from "./components/LoginForm";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+export default function App () {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        navigate('/login');
+    }, []);
+
+    return (
+            <Routes >
+                <Route path='/login' element={<LoginForm />}/>
+                <Route path='/userPage' element={<UserPage />}/>
+            </Routes>
+    );
 }
 
-export default App;
+// class App extends Component {
+//
+//     render() {
+//         return (
+//             <Routes >
+//                 <Route path='/login' element={<LoginForm />}/>
+//                 <Route path='/userPage' element={<Tooltip />}/>
+//             </Routes>
+//         );
+//     }
+// }
+
+{/*<Tooltip/>*/}
+{/*<DataTable/>*/}
+{/*<LoginForm />*/}
+
+// export default App;
